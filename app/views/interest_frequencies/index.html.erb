@@ -1,0 +1,23 @@
+
+<h1>Listing Frequencies</h1>
+<%= link_to 'New Frequency ', new_interest_frequency_path %>
+
+
+<table>
+  <tr>
+    <th>Frequency</th>
+    <th></th>
+  </tr>
+
+  <% @frequencies.each do |frequency| %>
+    <tr>
+      <td><%= frequency.frequency %></td>
+      <td><%= link_to 'Show', interest_frequency_path(frequency) %></td>
+      <td><%= link_to 'Edit', edit_interest_frequency_path(frequency) %></td>
+      <td><%= link_to 'Delete', interest_frequency_path(frequency),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>

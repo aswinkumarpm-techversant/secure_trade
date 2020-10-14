@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  issuer: one
+  security_type: one
+  interest_frequency: one
+  security_name: MyString
+  isin: MyString
+  issue_date: 2020-10-13
+  maturity_date: 2020-10-13
+  outstanding_stock: 1.5
+  face_value: 1.5
+  coupon_rate: 1.5
+
+two:
+  issuer: two
+  security_type: two
+  interest_frequency: two
+  security_name: MyString
+  isin: MyString
+  issue_date: 2020-10-13
+  maturity_date: 2020-10-13
+  outstanding_stock: 1.5
+  face_value: 1.5
+  coupon_rate: 1.5

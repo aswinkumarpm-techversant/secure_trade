@@ -1,0 +1,33 @@
+<%= form_for([@issuer, @securitytype]) do |f| %>
+
+
+  <% if @securitytype.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@securitytype.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @securitytype.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :issuer_name %><br />
+    <%= f.select :issuer_id, options_for_select(Issuer.all.map{|s|[s.name, s.id]}) %>
+  </div>
+
+  <p>
+    <%= f.label :security_type %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', security_types_path %>

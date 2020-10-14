@@ -1,0 +1,10 @@
+<h1>Uploads#index</h1>
+<p>Find me in app/views/uploads/index.html.erb</p>
+
+
+<%= form_tag({controller:'api/v1/csv_uploads',:action => "create"}, :multipart => true) do %>
+
+  <%= file_field_tag 'csvfile' %>
+  <%= submit_tag( "Import" ) %>
+<% end %>
+

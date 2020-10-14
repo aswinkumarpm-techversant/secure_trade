@@ -1,0 +1,77 @@
+<h1>Edit Article</h1>
+
+<%= form_with(model: @security, local: true) do |form| %>
+
+  <% if @security.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@security.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @security.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :issuer_name %><br />
+    <%= form.select :issuer_id, options_for_select(Issuer.all.map{ |s| [s.name, s.id] }, @security.issuer_id) %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :security_type %><br />
+    <%= form.select :security_type_id, options_for_select(SecurityType.all.map{|s|[s.name, s.id]},  @security.security_type_id) %>
+  </div>
+
+
+  <p>
+    <%= form.label :security_name %><br>
+    <%= form.text_field :security_name %>
+  </p>
+
+  <p>
+    <%= form.label :isin %><br>
+    <%= form.text_field :isin %>
+  </p>
+  <p>
+    <%= form.label :issue_date %><br>
+    <%= form.date_field :issue_date %>
+  </p>
+
+  <p>
+    <%= form.label :maturity_date %><br>
+    <%= form.date_field :maturity_date %>
+  </p>
+
+  <p>
+    <%= form.label :outstanding_stock %><br>
+    <%= form.text_field :outstanding_stock %>
+  </p>
+
+  <p>
+    <%= form.label :coupon_rate %><br>
+    <%= form.text_field :coupon_rate %>
+  </p>
+
+  <p>
+    <%= form.label :face_value %><br>
+    <%= form.text_field :face_value %>
+  </p>
+
+  <div class="field">
+    <%= form.label :interest_frequency %><br />
+    <%= form.select :interest_frequency_id, options_for_select(InterestFrequency.all.map{|s|[s.frequency, s.id]}, @security.interest_frequency_id) %>
+  </div>
+
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', securities_path %>

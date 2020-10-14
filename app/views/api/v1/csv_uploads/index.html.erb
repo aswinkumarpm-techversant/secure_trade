@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>CSV Files</th>
+  </tr>
+
+  <% @csv_files.each do |file| %>
+    <tr>
+      <td><%= file.csvfile %></td>
+
+    </tr>
+  <% end %>
+</table>

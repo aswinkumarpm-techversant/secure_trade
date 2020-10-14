@@ -1,0 +1,25 @@
+
+<h1>Listing Security Types</h1>
+
+<%= link_to 'New Security Type', new_security_type_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Issuers ID</th>
+    <th></th>
+  </tr>
+
+  <% @securitytypes.each do |type| %>
+    <tr>
+      <td><%= type.name %></td>
+      <td><%= type.issuer_id %></td>
+      <td><%= link_to 'Show', security_type_path(type) %></td>
+      <td><%= link_to 'Edit', edit_security_type_path(type) %></td>
+      <td><%= link_to 'Delete', security_type_path(type),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>
