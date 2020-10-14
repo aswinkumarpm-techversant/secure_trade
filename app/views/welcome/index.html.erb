@@ -1,6 +1,59 @@
 
-<h1>Hello, Rails!</h1>
 <div id="container" style="width:100%; height:400px;"></div>
 
 
-<%= javascript_pack_tag 'my_js' %>
+
+<script type="text/javascript" charset="utf-8">
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Dashboard'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            name: 'Count',
+            colorByPoint: true,
+            data: [{
+                name: 'Issuer',
+                y: <%= @issuer %>,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Security',
+                y: <%= @security %>
+            },
+                {
+                    name: 'Security Type',
+                    y: <%= @security_type %>
+                },                {
+                    name: 'Interest Frequencies',
+                    y: <%= @interest_frequencies %>
+                },
+
+            ]
+        }]
+    });
+
+</script>

@@ -1,31 +1,48 @@
 <%= link_to 'Upload File', uploads_path %>
 <br>
 <%= link_to 'Uploaded Files', api_v1_csv_uploads_path %>
-
-
-<h1>Listing Securities </h1>
-
+<br>
 <%= link_to 'New Security ', new_security_path %>
 <br>
 
+<div class="well col-xs-8 col-xs-offset-2"><h1>Listing Securities</h1>
 
-<table>
+
+<table class="table-bordered">
+  <thead class="thead-light">
+
   <tr>
+    <th>SLNO</th>
     <th>Name</th>
     <th>Issuers ID</th>
-    <th></th>
+    <th>ISIN</th>
+    <th>Face Value</th>
+    <th>Coupon Rate</th>
+    <th>Actions</th>
+
   </tr>
+  </thead>
+
 
   <% @securities.each do |type| %>
     <tr>
+      <td><%= type.id %></td>
       <td><%= type.security_name %></td>
       <td><%= type.issuer_id %></td>
-      <td><%= link_to 'Show', security_path(type) %></td>
-      <td><%= link_to 'Edit', edit_security_path(type) %></td>
-      <td><%= link_to 'Delete', security_path(type),
+      <td><%= type.isin %></td>
+      <td><%= type.face_value %></td>
+      <td><%= type.coupon_rate %></td>
+      <td><%= link_to 'Show', security_path(type), class: "btn btn-xs btn-primary" %>
+      <%= link_to 'Edit', edit_security_path(type), class: "btn btn-xs btn-success" %>
+      <%= link_to 'Delete', security_path(type),
                       method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
+                      data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
 
     </tr>
   <% end %>
 </table>
+
+
+  <%= will_paginate  %>
+
+</div>
