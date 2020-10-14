@@ -21,10 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-
-
+  get 'api/v1/csv_uploads/export_csv/:id' , to: 'api/v1/csv_uploads#export_csv'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

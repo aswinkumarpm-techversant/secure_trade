@@ -7,13 +7,9 @@ class Api::V1::CsvUploadsController < ApplicationController
 
   def show
     @csv_file = CsvUpload.find(params[:id])
-    if @csv_file
-      puts "called here", @csv_file.inspect
-    end
+    # render json:@csv_file
 
-    export(@csv_file.csvfile.path)
-    flash[:success] = "CSV Import Successful"
-    redirect_to securities_path
+
   end
 
   def create
@@ -37,12 +33,16 @@ class Api::V1::CsvUploadsController < ApplicationController
   # end
   #
 
-  # def export
-  #   @csv_file = CsvUpload.find(params[:id])
-  #   if @csv_file
-  #     puts "called here"
-  #   end
-  # end
+  def export_csv
+    @csv_file = CsvUpload.find(params[:id])
+    if @csv_file
+      puts "called here", @csv_file.inspect
+    end
+
+    export(@csv_file.csvfile.path)
+    flash[:success] = "CSV Import Successful"
+    redirect_to securities_path
+  end
 
   # def destroy
   #   @csv_file = CsvUpload.find(params[:id])

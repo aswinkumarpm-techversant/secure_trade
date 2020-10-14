@@ -12,7 +12,7 @@
   <% @frequencies.each do |frequency| %>
     <tr>
       <td><%= frequency.frequency %></td>
-      <td><%= link_to 'Show', interest_frequency_path(frequency) %></td>
+<!--      <td><%#= link_to 'Show', interest_frequency_path(frequency) %></td>-->
       <td><%= link_to 'Edit', edit_interest_frequency_path(frequency) %></td>
       <td><%= link_to 'Delete', interest_frequency_path(frequency),
                       method: :delete,
