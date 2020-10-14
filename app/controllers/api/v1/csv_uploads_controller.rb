@@ -35,11 +35,11 @@ class Api::V1::CsvUploadsController < ApplicationController
 
   def export_csv
     @csv_file = CsvUpload.find(params[:id])
-    if @csv_file
-      puts "called here", @csv_file.inspect
-    end
+    path = @csv_file.csvfile.path
+    # CSVFileUploaderWorker.perform_async(path)
+    CsvUploadJob.perform_now(path)
+    # export(path)
 
-    export(@csv_file.csvfile.path)
     flash[:success] = "CSV Import Successful"
     redirect_to securities_path
   end
