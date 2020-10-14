@@ -1,11 +1,14 @@
 <table>
   <tr>
     <th>CSV Files</th>
+    <th></th>
+
   </tr>
 
   <% @csv_files.each do |file| %>
     <tr>
       <td><%= file.csvfile %></td>
+      <td><%= link_to 'Export', 'csv_uploads/export_csv/' + file.id.to_s %></td>
 
     </tr>
   <% end %>
