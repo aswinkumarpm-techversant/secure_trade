@@ -44,17 +44,18 @@ class Api::V1::CsvUploadsController < ApplicationController
     redirect_to securities_path
   end
 
-  # def destroy
-  #   @csv_file = CsvUpload.find(params[:id])
-  #   if @csv_file
-  #     @csv_file.destroy
-  #     render json: {message: ' The CSV File is successfully Deleted!!'}, status:200
-  #   else
-  #     render error: {error: "Unable to Delete File"},status:400
-  #   end
-  #
+  def destroy
+    @csv_file = CsvUpload.find(params[:id])
+    if @csv_file
+      @csv_file.destroy
+      # render json: {message: ' The CSV File is successfully Deleted!!'}, status:200
+      redirect_to api_v1_csv_uploads_path
+    else
+      render error: {error: "Unable to Delete File"},status:400
+    end
 
-  # end
+
+  end
   def csv_params
     params.permit( :csvfile)
   end

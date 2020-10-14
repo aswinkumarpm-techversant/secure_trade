@@ -1,3 +1,6 @@
+<%= link_to 'Upload File', uploads_path %>
+
+
 <table>
   <tr>
     <th>CSV Files</th>
@@ -9,7 +12,9 @@
     <tr>
       <td><%= file.csvfile %></td>
       <td><%= link_to 'Export', 'csv_uploads/export_csv/' + file.id.to_s %></td>
-
+      <td><%= link_to 'Delete', api_v1_csv_upload_path(file),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
