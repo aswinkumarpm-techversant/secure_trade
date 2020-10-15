@@ -1,7 +1,7 @@
 
 <h1>Listing Issuers</h1>
 
-<%= link_to 'New Issuer', new_issuer_path %>
+<%= link_to 'New Issuer', new_issuer_path, class: "btn btn-xs btn-success" %>
 
 <table>
   <tr>
@@ -13,10 +13,10 @@
     <tr>
       <td><%= issuer.name %></td>
 <!--      <td><%#= link_to 'Show', issuer_path(issuer) %></td>-->
-      <td><%= link_to 'Edit', edit_issuer_path(issuer) %></td>
+      <td><%= link_to 'Edit', edit_issuer_path(issuer),  class: "btn btn-xs btn-primary" %></td>
       <td><%= link_to 'Delete', issuer_path(issuer),
                       method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
+                      data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %></td>
 
     </tr>
   <% end %>
