@@ -1,6 +1,6 @@
 class SecuritiesController < ApplicationController
   def index
-    @securities = Security.paginate(page: params[:page], per_page: 15)
+    @securities = Security.page params[:page]
   end
 
   def show

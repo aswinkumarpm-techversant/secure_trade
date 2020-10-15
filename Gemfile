@@ -36,11 +36,12 @@ gem 'draper'
 
 gem 'activeadmin'
 
+#
+# gem 'will_paginate', '3.1.7'
+# gem 'bootstrap-will_paginate', '1.0.0'
+gem 'kaminari'
 
-gem 'will_paginate', '3.1.7'
-gem 'bootstrap-will_paginate', '1.0.0'
-
-
+gem 'sidekiq'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
