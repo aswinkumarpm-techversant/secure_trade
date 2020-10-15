@@ -1,5 +1,4 @@
 class Api::V1::CsvUploadsController < ApplicationController
-  include(Api::V1::CsvUploadsHelper)
   def index
     @csv_files = CsvUpload.all
     # render json:@csv_files
