@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "homes#show"
+  root to: "homes#index"
   resource :homes, only: [:show]
   resources :pages, only: [:show]
 

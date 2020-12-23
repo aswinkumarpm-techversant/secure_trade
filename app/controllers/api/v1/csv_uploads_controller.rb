@@ -1,12 +1,14 @@
 class Api::V1::CsvUploadsController < ApplicationController
+  before_action :authenticate_user!, :except => [:index]
+
   def index
     @csv_files = CsvUpload.all
-    # render json:@csv_files
+    render json:@csv_files
   end
 
   def show
     @csv_file = CsvUpload.find(params[:id])
-    # render json:@csv_file
+    render json:@csv_file
 
 
   end
