@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+
+  root to: "homes#show"
+  resource :homes, only: [:show]
+  resources :pages, only: [:show]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
   get 'welcome/index'
 
-  root 'issuers#index'
+  # root 'issuers#index'
 
   resources :issuers
 
